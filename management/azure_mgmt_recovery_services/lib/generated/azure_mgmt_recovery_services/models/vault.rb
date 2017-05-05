@@ -8,15 +8,15 @@ module Azure::ARM::RecoveryServices
     #
     # Resource information, as returned by the resource provider.
     #
-    class Vault < MsRestAzure::Resource
+    class Vault < TrackedResource
 
       include MsRestAzure
 
-      # @return [String] ETag of the Vault.
-      attr_accessor :etag
-
       # @return [VaultProperties]
       attr_accessor :properties
+
+      # @return [Sku]
+      attr_accessor :sku
 
 
       #
@@ -55,19 +55,18 @@ module Azure::ARM::RecoveryServices
                   name: 'String'
                 }
               },
-              location: {
+              e_tag: {
                 required: false,
-                serialized_name: 'location',
+                serialized_name: 'eTag',
                 type: {
                   name: 'String'
                 }
               },
-              sku: {
-                required: false,
-                serialized_name: 'sku',
+              location: {
+                required: true,
+                serialized_name: 'location',
                 type: {
-                  name: 'Composite',
-                  class_name: 'Sku'
+                  name: 'String'
                 }
               },
               tags: {
@@ -84,20 +83,20 @@ module Azure::ARM::RecoveryServices
                   }
                 }
               },
-              etag: {
-                required: false,
-                read_only: true,
-                serialized_name: 'etag',
-                type: {
-                  name: 'String'
-                }
-              },
               properties: {
                 required: false,
                 serialized_name: 'properties',
                 type: {
                   name: 'Composite',
                   class_name: 'VaultProperties'
+                }
+              },
+              sku: {
+                required: false,
+                serialized_name: 'sku',
+                type: {
+                  name: 'Composite',
+                  class_name: 'Sku'
                 }
               }
             }

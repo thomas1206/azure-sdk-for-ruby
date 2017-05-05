@@ -13,15 +13,13 @@ module Azure::ARM::Network
       include MsRestAzure
 
       # @return [VirtualNetworkGatewaySkuName] Gateway SKU name. Possible
-      # values are: 'Basic', 'HighPerformance','Standard', and
-      # 'UltraPerformance'. Possible values include: 'Basic',
-      # 'HighPerformance', 'Standard', 'UltraPerformance'
+      # values include: 'Basic', 'HighPerformance', 'Standard',
+      # 'UltraPerformance', 'VpnGw1', 'VpnGw2', 'VpnGw3'
       attr_accessor :name
 
       # @return [VirtualNetworkGatewaySkuTier] Gateway SKU tier. Possible
-      # values are: 'Basic', 'HighPerformance','Standard', and
-      # 'UltraPerformance'. Possible values include: 'Basic',
-      # 'HighPerformance', 'Standard', 'UltraPerformance'
+      # values include: 'Basic', 'HighPerformance', 'Standard',
+      # 'UltraPerformance', 'VpnGw1', 'VpnGw2', 'VpnGw3'
       attr_accessor :tier
 
       # @return [Integer] The capacity.
@@ -41,14 +39,14 @@ module Azure::ARM::Network
             class_name: 'VirtualNetworkGatewaySku',
             model_properties: {
               name: {
-                required: true,
+                required: false,
                 serialized_name: 'name',
                 type: {
                   name: 'String'
                 }
               },
               tier: {
-                required: true,
+                required: false,
                 serialized_name: 'tier',
                 type: {
                   name: 'String'

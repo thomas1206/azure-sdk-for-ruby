@@ -6,7 +6,7 @@
 module Azure::ARM::SQL
   module Models
     #
-    # The service objectives capabilities.
+    # The service objectives capability.
     #
     class ServiceObjectiveCapability
 
@@ -26,12 +26,16 @@ module Azure::ARM::SQL
       # @return [Integer] Performance level value.
       attr_accessor :value
 
-      # @return [String] The unique ID of the service objective.
+      # @return The unique ID of the service objective.
       attr_accessor :id
 
       # @return [Array<MaxSizeCapability>] The list of supported maximum
       # database sizes for this service objective.
       attr_accessor :supported_max_sizes
+
+      # @return [MaxSizeCapability] The included (free) max size for this
+      # service level objective.
+      attr_accessor :included_max_size
 
 
       #
@@ -102,6 +106,15 @@ module Azure::ARM::SQL
                         class_name: 'MaxSizeCapability'
                       }
                   }
+                }
+              },
+              included_max_size: {
+                required: false,
+                read_only: true,
+                serialized_name: 'includedMaxSize',
+                type: {
+                  name: 'Composite',
+                  class_name: 'MaxSizeCapability'
                 }
               }
             }

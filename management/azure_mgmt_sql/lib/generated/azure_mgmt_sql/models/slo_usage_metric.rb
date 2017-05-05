@@ -14,7 +14,8 @@ module Azure::ARM::SQL
 
       # @return [ServiceObjectiveName] The serviceLevelObjective for SLO usage
       # metric. Possible values include: 'Basic', 'S0', 'S1', 'S2', 'S3', 'P1',
-      # 'P2', 'P3', 'P4', 'P6', 'P11', 'P15', 'System', 'ElasticPool'
+      # 'P2', 'P3', 'P4', 'P6', 'P11', 'P15', 'System', 'System2',
+      # 'ElasticPool'
       attr_accessor :service_level_objective
 
       # @return The serviceLevelObjectiveId for SLO usage metric.
@@ -38,6 +39,7 @@ module Azure::ARM::SQL
             model_properties: {
               service_level_objective: {
                 required: false,
+                read_only: true,
                 serialized_name: 'serviceLevelObjective',
                 type: {
                   name: 'String'
@@ -45,6 +47,7 @@ module Azure::ARM::SQL
               },
               service_level_objective_id: {
                 required: false,
+                read_only: true,
                 serialized_name: 'serviceLevelObjectiveId',
                 type: {
                   name: 'String'
@@ -52,6 +55,7 @@ module Azure::ARM::SQL
               },
               in_range_time_ratio: {
                 required: false,
+                read_only: true,
                 serialized_name: 'inRangeTimeRatio',
                 type: {
                   name: 'Double'

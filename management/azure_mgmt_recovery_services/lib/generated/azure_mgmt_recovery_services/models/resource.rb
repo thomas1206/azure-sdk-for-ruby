@@ -6,15 +6,14 @@
 module Azure::ARM::RecoveryServices
   module Models
     #
-    # Model object.
-    #
+    # ARM Resource.
     #
     class Resource < MsRestAzure::Resource
 
       include MsRestAzure
 
-      # @return [Sku]
-      attr_accessor :sku
+      # @return [String] Optional ETag.
+      attr_accessor :e_tag
 
 
       #
@@ -53,33 +52,11 @@ module Azure::ARM::RecoveryServices
                   name: 'String'
                 }
               },
-              location: {
+              e_tag: {
                 required: false,
-                serialized_name: 'location',
+                serialized_name: 'eTag',
                 type: {
                   name: 'String'
-                }
-              },
-              sku: {
-                required: false,
-                serialized_name: 'sku',
-                type: {
-                  name: 'Composite',
-                  class_name: 'Sku'
-                }
-              },
-              tags: {
-                required: false,
-                serialized_name: 'tags',
-                type: {
-                  name: 'Dictionary',
-                  value: {
-                      required: false,
-                      serialized_name: 'StringElementType',
-                      type: {
-                        name: 'String'
-                      }
-                  }
                 }
               }
             }

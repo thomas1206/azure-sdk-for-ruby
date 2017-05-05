@@ -15,6 +15,9 @@ module Azure::ARM::RecoveryServices
       # @return [String] Provisioning State.
       attr_accessor :provisioning_state
 
+      # @return [UpgradeDetails]
+      attr_accessor :upgrade_details
+
 
       #
       # Mapper for VaultProperties class as Ruby Hash.
@@ -34,6 +37,14 @@ module Azure::ARM::RecoveryServices
                 serialized_name: 'provisioningState',
                 type: {
                   name: 'String'
+                }
+              },
+              upgrade_details: {
+                required: false,
+                serialized_name: 'upgradeDetails',
+                type: {
+                  name: 'Composite',
+                  class_name: 'UpgradeDetails'
                 }
               }
             }

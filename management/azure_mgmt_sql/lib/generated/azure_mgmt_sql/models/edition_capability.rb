@@ -6,7 +6,7 @@
 module Azure::ARM::SQL
   module Models
     #
-    # The server edition capabilities.
+    # The database edition capabilities.
     #
     class EditionCapability
 
@@ -15,8 +15,8 @@ module Azure::ARM::SQL
       # @return [String] The edition name.
       attr_accessor :name
 
-      # @return [CapabilityStatus] The status of the server edition. Possible
-      # values include: 'Visible', 'Available', 'Default', 'Disabled'
+      # @return [CapabilityStatus] The status of the edition. Possible values
+      # include: 'Visible', 'Available', 'Default', 'Disabled'
       attr_accessor :status
 
       # @return [Array<ServiceObjectiveCapability>] The list of supported
